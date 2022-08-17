@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
 import App from './App';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 
-test('renders learn react link', () => {
+// omitted other codes
+it('renders <App />', async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
 });
